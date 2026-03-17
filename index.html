@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colour Selection App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fb;
+      color: #222;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 30px;
+    }
+
+    h2 {
+      margin-top: 30px;
+      font-size: 22px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .full-width {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .button-row {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      background: #1f4ed8;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background: #173eb0;
+    }
+
+    .section-box {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #fafafa;
+    }
+
+    .item-row {
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 15px;
+      background: #fff;
+    }
+
+    .total-box {
+      margin-top: 30px;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: right;
+    }
+
+    .small-text {
+      color: #666;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Colour Selection App</h1>
+    <p>Basic prototype</p>
+
+    <h2>Job Information</h2>
+    <div class="grid">
+      <div>
+        <label for="consultantFirstName">Consultant First Name</label>
+        <input type="text" id="consultantFirstName" />
+      </div>
+
+      <div>
+        <label for="consultantLastName">Consultant Last Name</label>
+        <input type="text" id="consultantLastName" />
+      </div>
+
+      <div>
+        <label for="builder">Builder</label>
+        <select id="builder">
+          <option value="">Select Builder</option>
+          <option>Builder A</option>
+          <option>Builder B</option>
+          <option>Builder C</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="region">Region</label>
+        <select id="region">
+          <option value="">Select Region</option>
+          <option>North</option>
+          <option>South</option>
+          <option>East</option>
+          <option>West</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="clientName">Client Name</label>
+        <input type="text" id="clientName" />
+      </div>
+
+      <div>
+        <label for="selectionNumber">Selection Number</label>
+        <input type="text" id="selectionNumber" value="CS1111" />
+      </div>
+
+      <div class="full-width">
+        <label for="jobAddress">Job Address</label>
+        <textarea id="jobAddress"></textarea>
+      </div>
+    </div>
+
+    <h2>Services</h2>
+    <div class="section-box">
+      <div class="grid">
+        <div>
+          <label for="serviceName">Service</label>
+          <select id="serviceName">
+            <option value="">Select Service</option>
+            <option>Wet Area Tiling</option>
+            <option>Main Floor Area Tiling</option>
+            <option>Carpet</option>
+            <option>Timber</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="roomName">Room</label>
+          <select id="roomName">
+            <option value="">Select Room</option>
+            <option>Bathroom</option>
+            <option>Ensuite</option>
+            <option>Kitchen</option>
+            <option>Laundry</option>
+            <option>Living Room</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="item-row">
+        <div class="grid">
+          <div>
+            <label for="areaName">Area</label>
+            <select id="areaName">
+              <option value="">Select Area</option>
+              <option>Floor</option>
+              <option>Wall</option>
+              <option>Skirting</option>
+              <option>Feature Wall</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="productName">Product</label>
+            <input type="text" id="productName" placeholder="Example: Alps White 300x300 Matt" />
+            <div class="small-text">Basic version: typed manually for now</div>
+          </div>
+
+          <div class="full-width">
+            <label for="note">Description / Note</label>
+            <textarea id="note" placeholder="Pattern, direction, notes"></textarea>
+          </div>
+
+          <div>
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" value="0" />
+          </div>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button type="button">Add Area</button>
+        <button type="button">Add Room</button>
+        <button type="button">Add Service</button>
+      </div>
+    </div>
+
+    <div class="total-box">
+      Total Amount: $0.00
+    </div>
+
+    <div class="button-row">
+      <button type="button">Save Selection</button>
+      <button type="button">Generate PDF</button>
+    </div>
+  </div>
+</body>
+</html>
